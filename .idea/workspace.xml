@@ -4,11 +4,14 @@
     <list default="true" id="2a34a6cc-204a-40d5-89f7-e2a35cd7a725" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_model/test_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_model/test_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_model/test_generator_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_model/test_generator_common.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/running_param.py" beforeDir="false" afterPath="$PROJECT_DIR$/running_param.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saved_models/concat_1min/multiple/all_concat_model.h5" beforeDir="false" afterPath="$PROJECT_DIR$/saved_models/concat_1min/multiple/all_concat_model.h5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_model/test_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_model/test_generator_concat.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_model/tester.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_model/tester.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train_model/train_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_model/train_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train_model/train_generator_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_model/train_generator_common.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train_model/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_model/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train_model/train_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_model/train_generator_concat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train_model/train_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_model/train_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train_model/trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_model/trainer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +156,8 @@
       <workItem from="1614163794397" duration="3089000" />
       <workItem from="1614520973948" duration="123000" />
       <workItem from="1614599680719" duration="336000" />
-      <workItem from="1614700844189" duration="1568000" />
+      <workItem from="1614700844189" duration="1637000" />
+      <workItem from="1615125597501" duration="2996000" />
     </task>
     <servers />
   </component>
@@ -169,42 +173,42 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1060" y="455" key="FileChooserDialogImpl/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1614700871117" />
-    <state width="2517" height="401" key="GridCell.Tab.0.bottom" timestamp="1614168686137">
-      <screen x="-2560" y="0" width="2560" height="1400" />
+    <state width="2517" height="389" key="GridCell.Tab.0.bottom" timestamp="1615128545655">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2517" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1614168686137" />
-    <state width="2517" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1614163578971" />
-    <state width="2517" height="401" key="GridCell.Tab.0.center" timestamp="1614168686137">
-      <screen x="-2560" y="0" width="2560" height="1400" />
+    <state width="2517" height="389" key="GridCell.Tab.0.bottom/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1615128545655" />
+    <state width="2517" height="389" key="GridCell.Tab.0.center" timestamp="1615128545655">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2517" height="401" key="GridCell.Tab.0.center/0.0.2560.1400/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1614168686137" />
-    <state width="2517" height="401" key="GridCell.Tab.0.center/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1614163578971" />
-    <state width="2517" height="401" key="GridCell.Tab.0.left" timestamp="1614168686137">
-      <screen x="-2560" y="0" width="2560" height="1400" />
+    <state width="2517" height="389" key="GridCell.Tab.0.center/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1615128545655" />
+    <state width="2517" height="389" key="GridCell.Tab.0.left" timestamp="1615128545655">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2517" height="401" key="GridCell.Tab.0.left/0.0.2560.1400/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1614168686137" />
-    <state width="2517" height="401" key="GridCell.Tab.0.left/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1614163578970" />
-    <state width="2517" height="401" key="GridCell.Tab.0.right" timestamp="1614168686137">
-      <screen x="-2560" y="0" width="2560" height="1400" />
+    <state width="2517" height="389" key="GridCell.Tab.0.left/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1615128545655" />
+    <state width="2517" height="389" key="GridCell.Tab.0.right" timestamp="1615128545655">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2517" height="401" key="GridCell.Tab.0.right/0.0.2560.1400/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1614168686137" />
-    <state width="2517" height="401" key="GridCell.Tab.0.right/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1614163578971" />
-    <state width="2517" height="389" key="GridCell.Tab.1.bottom" timestamp="1614160972035">
+    <state width="2517" height="389" key="GridCell.Tab.0.right/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1615128545655" />
+    <state width="2517" height="389" key="GridCell.Tab.1.bottom" timestamp="1615128545656">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="389" key="GridCell.Tab.1.bottom/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1614160972035" />
-    <state width="2517" height="389" key="GridCell.Tab.1.center" timestamp="1614160972035">
+    <state width="2517" height="389" key="GridCell.Tab.1.bottom/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1615128545656" />
+    <state width="2517" height="389" key="GridCell.Tab.1.center" timestamp="1615128545655">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="389" key="GridCell.Tab.1.center/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1614160972035" />
-    <state width="2517" height="389" key="GridCell.Tab.1.left" timestamp="1614160972035">
+    <state width="2517" height="389" key="GridCell.Tab.1.center/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1615128545655" />
+    <state width="2517" height="389" key="GridCell.Tab.1.left" timestamp="1615128545655">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="389" key="GridCell.Tab.1.left/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1614160972035" />
-    <state width="2517" height="389" key="GridCell.Tab.1.right" timestamp="1614160972035">
+    <state width="2517" height="389" key="GridCell.Tab.1.left/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1615128545655" />
+    <state width="2517" height="389" key="GridCell.Tab.1.right" timestamp="1615128545656">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="389" key="GridCell.Tab.1.right/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1614160972035" />
+    <state width="2517" height="389" key="GridCell.Tab.1.right/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1615128545656" />
     <state x="876" y="685" key="SettingsEditor" timestamp="1614134934988">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -221,11 +225,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/train_model/trainer.py</url>
-          <line>71</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/data_process/database/data_to_label.py</url>
           <line>67</line>
@@ -246,12 +245,17 @@
           <line>74</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/train_model/trainer.py</url>
+          <line>73</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/nilm_send$tester.coverage" NAME="tester Coverage Results" MODIFIED="1614159357772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_model" />
-    <SUITE FILE_PATH="coverage/nilm_send$entrance.coverage" NAME="entrance Coverage Results" MODIFIED="1614168235427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/nilm_send$entrance.coverage" NAME="entrance Coverage Results" MODIFIED="1615128545644" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/nilm_send$data_utils.coverage" NAME="data_utils Coverage Results" MODIFIED="1614153254155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_process/database/common" />
   </component>
 </project>

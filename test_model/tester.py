@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from test_model.metrics import recall_precision_accuracy_f1, relative_error_total_energy, mean_absolute_error
-from test_model.test_generator import TestSlidingWindowGenerator
+from test_model.test_generator_concat import TestSlidingWindowGenerator
 from test_model.test_generator_common import TestSlidingWindowGeneratorCommon
 from train_model.model import load_model
 import configparser

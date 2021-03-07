@@ -47,7 +47,7 @@ def save_model(model, save_model_dir):
     model_path = save_model_dir
     if not os.path.exists(model_path):
         open(model_path, 'a').close()
-    model.save(model_path)
+    model.save(model_path, overwrite=True)
 
 
 def load_model(saved_model_dir):
