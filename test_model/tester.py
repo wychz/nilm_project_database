@@ -1,25 +1,28 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+from data_process.database.common.data_utils import get_appliance_list, get_appliance_name
 from test_model.metrics import recall_precision_accuracy_f1, relative_error_total_energy, mean_absolute_error
 from test_model.test_generator_concat import TestSlidingWindowGenerator
 from test_model.test_generator_common import TestSlidingWindowGeneratorCommon
 from train_model.model import load_model
+from utils.common_utils import get_engine
 import configparser
 import running_param
 
 cf = configparser.ConfigParser()
-cf.read('temp.conf', encoding='utf-8')
+cf.read('temp.conf', encoding='gbk')
+engine = get_engine()
 
 
 class Tester:
-    def __init__(self, appliance, batch_size, model_type, predict_mode, appliance_name_list,
+    def __init__(self, appliance, batch_size, model_type, predict_mode, meter_name_list,
                  test_directory, saved_model_dir, log_file_dir,
-                 input_window_length):
+                 input_window_length, appliance_count):
         self.__appliance = appliance
         self.__model_type = model_type
         self.__predict_mode = predict_mode
-        self.__appliance_name_list = appliance_name_list
+        self.__meter_name_list = meter_name_list
         self.__batch_size = batch_size
         self._input_window_length = input_window_length
         self.__window_offset = int(0.5 * (self._input_window_length + 2) - 1)
@@ -29,14 +32,14 @@ class Tester:
         if self.__predict_mode == 'single':
             self.__appliance_count = 1
         else:
-            self.__appliance_count = len(appliance_name_list)
+            self.__appliance_count = appliance_count
         self.__log_file = log_file_dir
 
     def test_model(self):
         model = load_model(self.__saved_model_dir)
         if self.__model_type == 'concat':
             test_generator = TestSlidingWindowGenerator(number_of_windows=self.__number_of_windows,
-                                                        appliance_name_list=self.__appliance_name_list,
+                                                        appliance_name_list=self.__meter_name_list,
                                                         offset=self.__window_offset,
                                                         predict_mode=self.__predict_mode,
                                                         test_directory=self.__test_directory,
@@ -44,7 +47,7 @@ class Tester:
             test_input, test_target = test_generator.generate_dataset_concat()
         else:
             test_generator = TestSlidingWindowGeneratorCommon(number_of_windows=self.__number_of_windows,
-                                                              appliance_name_list=self.__appliance_name_list,
+                                                              appliance_name_list=self.__meter_name_list,
                                                               offset=self.__window_offset,
                                                               predict_mode=self.__predict_mode,
                                                               test_directory=self.__test_directory,
@@ -61,15 +64,20 @@ class Tester:
 
         elif self.__predict_mode == 'multiple':
             count = 0
-            for appliance_name in self.__appliance_name_list:
-                appliance_min, appliance_max = generate_min_max(appliance_name)
-                self.plot_results_multiple(testing_history[:, count:count + 1], test_input,
-                                           test_target[:, count:count + 1], appliance_name, count + 1, appliance_min,
-                                           appliance_max)
-                count = count + 1
+            for meter_name in self.__meter_name_list:
+                appliance_id_list = get_appliance_list(meter_name, engine)
+                for appliance_id in appliance_id_list:
+                    if appliance_id is None or '-' in appliance_id:
+                        continue
+                    appliance_name = get_appliance_name(appliance_id, engine)
+                    appliance_min, appliance_max = generate_min_max(appliance_name)
+                    self.plot_results_multiple(testing_history[:, count:count + 1], test_input,
+                                               test_target[:, count:count + 1], appliance_name, count + 1, appliance_min,
+                                               appliance_max)
+                    count = count + 1
         elif self.__predict_mode == 'multi_label':
             count = 0
-            for appliance_name in self.__appliance_name_list:
+            for appliance_name in self.__meter_name_list:
                 self.plot_results_multiple_label(testing_history[:, count:count + 1], test_input,
                                                  test_target[:, count:count + 1], appliance_name)
                 count = count + 1
@@ -122,6 +130,8 @@ class Tester:
 
     def print_plots(self, test_agg, test_target, testing_history, count, appliance_name):
         # plt.figure(count, figsize=(300, 300))
+        plt.rcParams['font.sans-serif'] = ['SimHei']  # 显示中文标签
+        plt.rcParams['axes.unicode_minus'] = False
         plt.figure(count)
         plt.plot(test_agg[self.__window_offset: -self.__window_offset], label="Aggregate")
         plt.plot(test_target[:test_agg.size - (2 * self.__window_offset)], label="Ground Truth")

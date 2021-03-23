@@ -10,7 +10,7 @@ save_path = 'data_process/database/processed_dataset/1min_csv/multi_label/'
 predict_mode = 'multi_label'
 
 cf = configparser.ConfigParser()
-cf.read('temp.conf', encoding='utf-8')
+cf.read('temp.conf', encoding='gbk')
 
 
 def data_process_database_multi_label():

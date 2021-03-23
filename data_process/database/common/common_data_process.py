@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-from data_process.database.common.data_utils import data_read_database
+from data_process.database.common.data_utils import data_read_database, get_appliance_name
 
 
 # 生成总功率数据
@@ -27,17 +27,18 @@ def generate_mains_common(meter, sample_seconds, debug, engine):
     return mains_df
 
 
-def generate_appliance_common(meter, sample_seconds, engine):
+def generate_appliance_common(appliance_name, appliance_id, meter, sample_seconds, engine):
     meter_table_name = 'meter_{}_source'.format(meter)
-    sql_query = "select timestamp, KW from {}".format(meter_table_name)
+    sql_query = "select timestamp, KW from {} where model = '{}'".format(meter_table_name, appliance_id)
     app_df = data_read_database(engine, sql_query)
-    app_df.rename(columns={"KW": meter, "timestamp": "time"}, inplace=True)
+    app_df.rename(columns={"KW": appliance_name, "timestamp": "time"}, inplace=True)
     app_df['time'] = app_df['time'].astype('str')
-    app_df[meter] = app_df[meter].astype('float64')
-    app_df[meter] = app_df[meter] * 1000
+    app_df[appliance_name] = app_df[appliance_name].astype('float64')
+    app_df[appliance_name] = app_df[appliance_name] * 1000
     app_df['time'] = pd.to_datetime(app_df['time'], unit='ms')
     app_df.set_index('time', inplace=True)
     app_df = app_df.resample(str(sample_seconds) + 'S').fillna(method='backfill', limit=1)
     app_df.reset_index(inplace=True)
 
     return app_df
+

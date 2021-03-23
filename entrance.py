@@ -13,7 +13,7 @@ parser.add_argument("--step", type=remove_space, default="train", help="The name
 arguments = parser.parse_args()
 
 # mode = arguments.step
-mode = 'test'
+mode = 'all'
 
 
 if mode == 'train':
@@ -24,3 +24,7 @@ elif mode == 'data_process':
     database_data_process()
 elif mode == 'data_process_database_multi_label':
     data_process_database_multi_label()
+elif mode == 'all':
+    database_data_process()
+    train_model()
+    test_model()

@@ -42,6 +42,6 @@ class TestSlidingWindowGenerator(object):
         data_array = self.data_array
         inputs = data_array[:, 0: 4]
         inputs = np.reshape(inputs, (-1, 4))
-        outputs = data_array[self.__offset: -self.__offset, self.__appliance_count:]
+        outputs = data_array[self.__offset: -self.__offset, -self.__appliance_count:]
         outputs = np.reshape(outputs, (-1, self.__appliance_count))
         return inputs, outputs
