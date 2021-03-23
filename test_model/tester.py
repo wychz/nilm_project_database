@@ -109,8 +109,8 @@ class Tester:
     def testing_data_process(self, testing_history, test_target, test_input, appliance_min, appliance_max):
         testing_history = ((testing_history * (appliance_max - appliance_min)) + appliance_min)
         test_target = ((test_target * (appliance_max - appliance_min)) + appliance_min)
-        mean = cf.getfloat('aggregate', 'mean')
-        std = cf.getfloat('aggregate', 'std')
+        mean = cf.getfloat('aggregate_' + self.__appliance, 'mean')
+        std = cf.getfloat('aggregate_' + self.__appliance, 'std')
         test_agg = (((test_input[:, 0].flatten()) * std) + mean)
 
         test_agg = test_agg[:testing_history.size]

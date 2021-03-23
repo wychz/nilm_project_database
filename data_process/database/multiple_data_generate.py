@@ -76,7 +76,6 @@ def generate_mains_appliance(mains_df, app_df, meter_name_list, sample_seconds, 
     mains_df.set_index('time', inplace=True)
     app_df.set_index('time', inplace=True)
     df_align = mains_df.join(app_df, how='outer').resample(str(sample_seconds) + 'S').fillna(method='backfill', limit=1)
-    # del df_align['飞利浦电吹风']          ### 这个电器有问题
     for meter_name in meter_name_list:
         appliance_id_list = get_appliance_list(meter_name, engine)
         for appliance_id in appliance_id_list:

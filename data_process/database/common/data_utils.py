@@ -38,11 +38,12 @@ def single_normalization(df_align, appliance_name):
     appliance_min = np.min(df_align[appliance_name])
     appliance_max = np.max(df_align[appliance_name])
 
-    if cf.has_section('aggregate'):
-        cf.remove_section('aggregate')
-    cf.add_section('aggregate')
-    cf.set('aggregate', 'mean', str(aggregate_mean))
-    cf.set('aggregate', 'std', str(aggregate_std))
+    section_name = 'aggregate_' + appliance_name
+    if cf.has_section(section_name):
+        cf.remove_section(section_name)
+    cf.add_section(section_name)
+    cf.set(section_name, 'mean', str(aggregate_mean))
+    cf.set(section_name, 'std', str(aggregate_std))
     if cf.has_section(appliance_name):
         cf.remove_section(appliance_name)
     cf.add_section(appliance_name)
@@ -72,17 +73,17 @@ def multi_normalization(df_align, meter_name_list, engine):
             cf.set(appliance_name, 'min', str(appliance_min))
             cf.set(appliance_name, 'max', str(appliance_max))
             df_align[appliance_name] = normalize_data(df_align[appliance_name], appliance_min, appliance_max)
-        aggregate_mean = np.mean(df_align['aggregate'])
-        aggregate_std = np.std(df_align['aggregate'])
-        if cf.has_section('aggregate'):
-            cf.remove_section('aggregate')
-        cf.add_section('aggregate')
-        cf.set('aggregate', 'mean', str(aggregate_mean))
-        cf.set('aggregate', 'std', str(aggregate_std))
-        with open('temp.conf', 'w') as f:
-            cf.write(f)
-        df_align['aggregate'] = standardize_data(df_align['aggregate'], aggregate_mean, aggregate_std)
-        df_align = society_normalization(df_align)
+    aggregate_mean = np.mean(df_align['aggregate'])
+    aggregate_std = np.std(df_align['aggregate'])
+    if cf.has_section('aggregate_all'):
+        cf.remove_section('aggregate_all')
+    cf.add_section('aggregate_all')
+    cf.set('aggregate_all', 'mean', str(aggregate_mean))
+    cf.set('aggregate_all', 'std', str(aggregate_std))
+    with open('temp.conf', 'w') as f:
+        cf.write(f)
+    df_align['aggregate'] = standardize_data(df_align['aggregate'], aggregate_mean, aggregate_std)
+    df_align = society_normalization(df_align)
     return df_align
 
 
