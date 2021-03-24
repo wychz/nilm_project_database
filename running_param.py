@@ -28,5 +28,6 @@ learning_rate = float(cf.get('train', 'learning_rate'))
 is_load_model = cf.getboolean('train', 'is_load_model')
 
 on_power_threshold = cf.getint('data', 'on_power_threshold')
+is_plot = cf.getboolean('data', 'plot')
 
 

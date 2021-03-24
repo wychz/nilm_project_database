@@ -13,7 +13,7 @@ class Trainer:
     def __init__(self, appliance, batch_size, model_type,
                  training_directory, validation_directory, save_model_dir, predict_mode, appliance_count,
                  epochs=100, input_window_length=50, validation_frequency=1,
-                 patience=3, min_delta=1e-6, verbose=1, learning_rate=0.001, is_load_model=False):
+                 patience=3, min_delta=1e-6, verbose=1, learning_rate=0.001, is_load_model=False, plot=False):
         self.__appliance = appliance
         self.__model_type = model_type
         self.__batch_size = batch_size
@@ -39,6 +39,7 @@ class Trainer:
         self.__training_directory = training_directory
         self.__validation_directory = validation_directory
         self.__is_load_model = is_load_model
+        self.__plot = plot
         np.random.seed(120)
         tf.random.set_seed(120)
         if model_type == 'concat':
@@ -88,7 +89,8 @@ class Trainer:
                                                          self.__validation_frequency)
         model.summary()
         save_model(model, self.__save_model_dir)
-        # self.plot_training_results(training_history)
+        if self.__plot:
+            self.plot_training_results(training_history)
 
     def train_process(self, model, callbacks, steps_per_training_epoch):
         training_history = model.fit(self.__training_generator.load_dataset(),

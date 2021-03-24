@@ -1,24 +1,19 @@
-import matplotlib.pyplot as plt
 import time
 from data_process.database.common.data_utils import multi_normalization, get_appliance_list, get_appliance_name
 from data_process.database.common.common_data_process import generate_mains_common, generate_appliance_common
 import running_param as param
 
 
-# 同时训练多个电器 ---- 数据生成
-from utils.common_utils import get_appliance_count
-
-
-def generate(meter_name_list, main_meter, save_path, engine):
+def generate(meter_name_list, main_meter, save_path, engine, plot):
     start_time = time.time()
     validation_percent = param.validation_percent
     sample_seconds = param.sample_seconds
     test_percent = param.test_percent
-    debug = False
+    is_plot = plot
 
-    mains_df = generate_mains_common(main_meter, sample_seconds, debug, engine)
-    app_df = generate_appliance(meter_name_list, sample_seconds, debug, engine)
-    df_align = generate_mains_appliance(mains_df, app_df, meter_name_list, sample_seconds, debug, engine)
+    mains_df = generate_mains_common(main_meter, sample_seconds, is_plot, engine)
+    app_df = generate_appliance(meter_name_list, sample_seconds, engine)
+    df_align = generate_mains_appliance(mains_df, app_df, meter_name_list, sample_seconds, is_plot, engine)
     df_align = multi_normalization(df_align, meter_name_list, engine)
 
     # test CSV
@@ -45,8 +40,7 @@ def generate(meter_name_list, main_meter, save_path, engine):
     del df_align, val
 
 
-def generate_appliance(meter_name_list, sample_seconds, debug, engine):
-    appliance_count = get_appliance_count()
+def generate_appliance(meter_name_list, sample_seconds, engine):
     app_df_list = []
     i = 0
     for meter_name in meter_name_list:

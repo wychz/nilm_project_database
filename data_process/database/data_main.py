@@ -8,6 +8,7 @@ meter_name_list = running_param.meter_name_list
 predict_mode = running_param.predict_mode
 save_path = running_param.save_path + predict_mode + "/"
 main_meter = running_param.main_meter
+plot = running_param.is_plot
 
 username = running_param.username
 password = running_param.password
@@ -20,6 +21,6 @@ engine = create_engine("mysql+pymysql://{}:{}@{}:{}/{}".format(username, passwor
 
 def database_data_process():
     if predict_mode == 'single':
-        single_data_generate.generate(meter_name_list, main_meter, save_path, engine)
+        single_data_generate.generate(meter_name_list, main_meter, save_path, engine, plot)
     elif predict_mode == 'multiple':
-        multiple_data_generate.generate(meter_name_list, main_meter, save_path, engine)
+        multiple_data_generate.generate(meter_name_list, main_meter, save_path, engine, plot)

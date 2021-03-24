@@ -4,7 +4,7 @@ from data_process.database.common.data_utils import data_read_database, get_appl
 
 
 # 生成总功率数据
-def generate_mains_common(meter, sample_seconds, debug, engine):
+def generate_mains_common(meter, sample_seconds, plot, engine):
     meter_table_name = 'meter_{}_source'.format(meter)
     sql_query = "select timestamp, KW, centigrade, people, isworkday from {}".format(meter_table_name)
     mains_df = data_read_database(engine, sql_query)
@@ -18,7 +18,7 @@ def generate_mains_common(meter, sample_seconds, debug, engine):
     mains_df = mains_df.resample(str(sample_seconds) + 'S').fillna(method='backfill', limit=1)
     mains_df.reset_index(inplace=True)
 
-    if debug:
+    if plot:
         print("    mains_df:")
         print(mains_df.head())
         plt.plot(mains_df['time'], mains_df['aggregate'])
