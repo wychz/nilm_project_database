@@ -14,7 +14,7 @@ def generate(meter_name_list, main_meter, save_path, engine):
     validation_percent = param.validation_percent
     sample_seconds = param.sample_seconds
     test_percent = param.test_percent
-    debug = True
+    debug = False
 
     mains_df = generate_mains_common(main_meter, sample_seconds, debug, engine)
     app_df = generate_appliance(meter_name_list, sample_seconds, debug, engine)

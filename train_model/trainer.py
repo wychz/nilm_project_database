@@ -88,7 +88,7 @@ class Trainer:
                                                          self.__validation_frequency)
         model.summary()
         save_model(model, self.__save_model_dir)
-        self.plot_training_results(training_history)
+        # self.plot_training_results(training_history)
 
     def train_process(self, model, callbacks, steps_per_training_epoch):
         training_history = model.fit(self.__training_generator.load_dataset(),
