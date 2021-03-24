@@ -8,6 +8,7 @@ batch_size = running_param.batch_size
 model_type = running_param.model_type
 input_window_length = running_param.input_window_length
 predict_mode = running_param.predict_mode
+plot_to_file = running_param.plot_to_file
 dataset = running_param.dataset
 engine = get_engine()
 
@@ -25,7 +26,7 @@ def test_model():
                 log_file_dir = "saved_models/" + model_type + "_1min/" + predict_mode + "/" + appliance_name + "_" + model_type + ".log"
                 appliance_count = get_appliance_count()
                 tester = Tester(appliance_name, batch_size, model_type, predict_mode, meter_name_list, test_directory, saved_model_dir,
-                                log_file_dir, input_window_length, appliance_count)
+                                log_file_dir, input_window_length, appliance_count, plot_to_file)
                 tester.test_model()
 
     elif predict_mode == 'multiple' or predict_mode == 'multi_label':
@@ -34,5 +35,5 @@ def test_model():
         log_file_dir = "saved_models/" + model_type + "_1min/" + predict_mode + "/" + 'all' + "_" + model_type + ".log"
         appliance_count = get_appliance_count()
         tester = Tester('all', batch_size, model_type, predict_mode, meter_name_list, test_directory, saved_model_dir,
-                        log_file_dir, input_window_length, appliance_count)
+                        log_file_dir, input_window_length, appliance_count, plot_to_file)
         tester.test_model()

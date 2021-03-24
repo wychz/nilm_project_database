@@ -18,7 +18,7 @@ engine = get_engine()
 class Tester:
     def __init__(self, appliance, batch_size, model_type, predict_mode, meter_name_list,
                  test_directory, saved_model_dir, log_file_dir,
-                 input_window_length, appliance_count):
+                 input_window_length, appliance_count, plot_to_file):
         self.__appliance = appliance
         self.__model_type = model_type
         self.__predict_mode = predict_mode
@@ -29,6 +29,7 @@ class Tester:
         self.__number_of_windows = 100
         self.__test_directory = test_directory
         self.__saved_model_dir = saved_model_dir
+        self.__plot_to_file = plot_to_file
         if self.__predict_mode == 'single':
             self.__appliance_count = 1
         else:
@@ -129,7 +130,9 @@ class Tester:
         return rpaf, rete, mae
 
     def print_plots(self, test_agg, test_target, testing_history, count, appliance_name):
-        # plt.figure(count, figsize=(300, 300))
+        if self.__plot_to_file:
+            plt.figure(count, figsize=(300, 300))
+            plt.savefig("../plot_results/" + self.__predict_mode + "/" + self.__appliance + "_" + appliance_name + ".png")
         plt.rcParams['font.sans-serif'] = ['SimHei']  # 显示中文标签
         plt.rcParams['axes.unicode_minus'] = False
         plt.figure(count)
@@ -140,7 +143,7 @@ class Tester:
         plt.ylabel("Power Value (Watts)")
         plt.xlabel("Testing Window")
         plt.legend()
-        # plt.savefig("../plot_results/" + self.__predict_mode + "/" + self.__appliance + "_" + appliance_name + ".png")
+
         plt.show()
 
 

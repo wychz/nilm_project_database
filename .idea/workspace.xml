@@ -3,13 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2a34a6cc-204a-40d5-89f7-e2a35cd7a725" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_process/database/common/common_data_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_process/database/common/common_data_process.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_process/database/data_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_process/database/data_main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_process/database/multiple_data_generate.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_process/database/multiple_data_generate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_process/database/single_data_generate.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_process/database/single_data_generate.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/running_param.py" beforeDir="false" afterPath="$PROJECT_DIR$/running_param.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train_model/train_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_model/train_main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train_model/trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_model/trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_model/test_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_model/test_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_model/tester.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_model/tester.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +177,7 @@
       <workItem from="1615125597501" duration="3074000" />
       <workItem from="1616501981942" duration="22208000" />
       <workItem from="1616524636448" duration="439000" />
-      <workItem from="1616584336079" duration="527000" />
+      <workItem from="1616584336079" duration="875000" />
     </task>
     <servers />
   </component>
@@ -302,7 +298,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test_model/tester.py</url>
-          <line>71</line>
+          <line>72</line>
           <option name="timeStamp" value="108" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
