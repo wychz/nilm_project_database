@@ -2,6 +2,7 @@ from data_process.database.common.data_utils import get_appliance_list, get_appl
 from train_model.trainer import Trainer
 import running_param
 from utils.common_utils import get_appliance_count, get_engine
+import configparser
 
 meter_name_list = running_param.meter_name_list
 batch_size = running_param.batch_size
@@ -16,6 +17,10 @@ learning_rate = running_param.learning_rate
 is_load_model = running_param.is_load_model
 engine = get_engine()
 
+cf = configparser.ConfigParser()
+cf.read('config.ini', encoding='utf-8')
+
+
 
 
 def train_model():
@@ -26,6 +31,10 @@ def train_model():
                 if appliance_id is None or '-' in appliance_id:
                     continue
                 appliance_name = get_appliance_name(appliance_id, engine)
+                try:
+                    appliance_window = cf.getint('window', appliance_name)
+                except:
+                    appliance_window = cf.getint('window', 'common')
                 training_directory = 'data_process/' + dataset + '/processed_dataset/1min_csv/' + predict_mode + "/" + appliance_name + '_training_.csv'
                 validation_directory = 'data_process/' + dataset + '/processed_dataset/1min_csv/' + predict_mode + "/" + appliance_name + '_validation_.csv'
                 save_model_dir = "saved_models/" + model_type + "_1min/" + predict_mode + "/" + appliance_name + "_" + model_type + "_model.h5"
@@ -33,7 +42,7 @@ def train_model():
                 trainer = Trainer(appliance_name, batch_size, model_type,
                                   training_directory, validation_directory,
                                   save_model_dir, predict_mode, appliance_count,
-                                  epochs=epochs, input_window_length=input_window_length,
+                                  epochs=epochs, input_window_length=appliance_window,
                                   validation_frequency=validation_frequency, learning_rate=learning_rate, is_load_model=is_load_model, plot=plot)
                 trainer.train_model()
 
@@ -46,5 +55,5 @@ def train_model():
                           training_directory, validation_directory,
                           save_model_dir, predict_mode, appliance_count,
                           epochs=epochs, input_window_length=input_window_length,
-                          validation_frequency=validation_frequency,learning_rate=learning_rate, is_load_model=is_load_model, plot=plot)
+                          validation_frequency=validation_frequency, learning_rate=learning_rate, is_load_model=is_load_model, plot=plot)
         trainer.train_model()

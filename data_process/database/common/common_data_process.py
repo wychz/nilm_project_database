@@ -23,7 +23,6 @@ def generate_mains_common(meter, sample_seconds, plot, engine):
         print(mains_df.head())
         plt.plot(mains_df['time'], mains_df['aggregate'])
         plt.show()
-
     return mains_df
 
 

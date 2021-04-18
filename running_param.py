@@ -20,7 +20,6 @@ meter_name_list = eval(cf.get('train', 'meter_name_list'))
 predict_mode = cf.get('train', 'predict_mode')
 model_type = cf.get('train', 'model_type')
 batch_size = int(cf.get('train', 'batch_size'))
-input_window_length = int(cf.get('train', 'input_window_length'))
 validation_percent = int(cf.get('train', 'validation_percent'))
 test_percent = int(cf.get('train', 'test_percent'))
 sample_seconds = int(cf.get('train', 'sample_seconds'))
@@ -30,5 +29,7 @@ is_load_model = cf.getboolean('train', 'is_load_model')
 on_power_threshold = cf.getint('data', 'on_power_threshold')
 is_plot = cf.getboolean('other', 'plot')
 plot_to_file = cf.getboolean('other', 'plot_to_file')
+
+input_window_length = int(cf.get('window', 'common'))
 
 
