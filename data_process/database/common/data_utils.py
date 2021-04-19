@@ -11,6 +11,9 @@ def data_read_database(engine, sql_query):
     df_read = pd.read_sql_query(sql_query, engine)
     return df_read
 
+def data_read_csv(csv_path):
+    df_read = pd.read_csv(csv_path, names=["timestamp", "KW", "centigrade", "people", "isworkday"])
+
 
 def get_appliance_list(meter, engine):
     meter_table_name = 'meter_{}_source'.format(meter)

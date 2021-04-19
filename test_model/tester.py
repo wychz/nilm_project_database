@@ -16,9 +16,10 @@ engine = get_engine()
 
 
 class Tester:
-    def __init__(self, appliance, batch_size, model_type, predict_mode, meter_name_list,
+    def __init__(self, meter_name, appliance, batch_size, model_type, predict_mode, meter_name_list,
                  test_directory, saved_model_dir, log_file_dir,
-                 input_window_length, appliance_count, plot_to_file):
+                 input_window_length, appliance_count, plot_to_file, fig_length):
+        self.__meter_name = meter_name
         self.__appliance = appliance
         self.__model_type = model_type
         self.__predict_mode = predict_mode
@@ -35,6 +36,7 @@ class Tester:
         else:
             self.__appliance_count = appliance_count
         self.__log_file = log_file_dir
+        self.__fig_length = fig_length
 
     def test_model(self):
         model = load_model(self.__saved_model_dir)
@@ -88,8 +90,8 @@ class Tester:
                                                                            appliance_min, appliance_max)
         threshold = running_param.on_power_threshold
         rpaf, rete, mae = self.calculate_metrics(testing_history, test_agg, test_target, threshold)
-        print_metrics(self.__appliance, rpaf, rete, mae)
-        appliance_name = " "
+        self.print_metrics(self.__appliance, rpaf, rete, mae)
+        appliance_name = "pic"
         self.print_plots(test_agg, test_target, testing_history, 1, appliance_name)
 
     def plot_results_multiple(self, testing_history, test_input, test_target, appliance_name, count, appliance_min,
@@ -98,14 +100,14 @@ class Tester:
                                                                            appliance_min, appliance_max)
         threshold = running_param.on_power_threshold
         rpaf, rete, mae = self.calculate_metrics(testing_history, test_agg, test_target, threshold)
-        print_metrics(appliance_name, rpaf, rete, mae)
+        self.print_metrics(appliance_name, rpaf, rete, mae)
         self.print_plots(test_agg, test_target, testing_history, count, appliance_name)
 
     def plot_results_multiple_label(self, testing_history, test_input, test_target, appliance_name):
         test_agg = test_input[:, 0].flatten()
         test_agg = test_agg[:testing_history.size]
         rpaf, rete, mae = self.calculate_metrics(testing_history, test_agg, test_target, 0.5)
-        print_metrics(appliance_name, rpaf, rete, mae)
+        self.print_metrics(appliance_name, rpaf, rete, mae)
 
     def testing_data_process(self, testing_history, test_target, test_input, appliance_min, appliance_max):
         testing_history = ((testing_history * (appliance_max - appliance_min)) + appliance_min)
@@ -130,32 +132,42 @@ class Tester:
         return rpaf, rete, mae
 
     def print_plots(self, test_agg, test_target, testing_history, count, appliance_name):
-        if self.__plot_to_file:
-            plt.figure(count, figsize=(300, 300))
-            plt.savefig("../plot_results/" + self.__predict_mode + "/" + self.__appliance + "_" + appliance_name + ".png")
+        plt.figure(count, figsize=(self.__fig_length, self.__fig_length))
         plt.rcParams['font.sans-serif'] = ['SimHei']  # 显示中文标签
         plt.rcParams['axes.unicode_minus'] = False
-        plt.figure(count)
         plt.plot(test_agg[self.__window_offset: -self.__window_offset], label="Aggregate")
         plt.plot(test_target[:test_agg.size - (2 * self.__window_offset)], label="Ground Truth")
         plt.plot(testing_history[:test_agg.size - (2 * self.__window_offset)], label="Predicted")
-        plt.title(self.__appliance + " " + appliance_name + " " + self.__model_type)
+        plt.title(self.__meter_name + " " + self.__appliance + " " + appliance_name + " " + self.__model_type)
         plt.ylabel("Power Value (Watts)")
         plt.xlabel("Testing Window")
         plt.legend()
-
+        if self.__plot_to_file:
+            plt.savefig("plot_results/" + self.__predict_mode + "/" + self.__meter_name + "_" + self.__appliance + "_" + appliance_name + ".png")
         plt.show()
 
+    def print_metrics(self, appliance_name, rpaf, rete, mae):
 
-def print_metrics(appliance_name, rpaf, rete, mae):
-    print("======================================Appliance: {}".format(appliance_name))
-    print("============ Recall: {}".format(rpaf[0]))
-    print("============ Precision: {}".format(rpaf[1]))
-    print("============ Accuracy: {}".format(rpaf[2]))
-    print("============ F1 Score: {}".format(rpaf[3]))
-    print("============ Relative error in total energy: {}".format(rete))
-    print("============ Mean absolute error(in Watts): {}".format(mae))
-    print("                                                  ")
+        print("======================================Appliance: {}-{}".format(self.__meter_name, appliance_name))
+        print("============ Recall: {}".format(rpaf[0]))
+        print("============ Precision: {}".format(rpaf[1]))
+        print("============ Accuracy: {}".format(rpaf[2]))
+        print("============ F1 Score: {}".format(rpaf[3]))
+        print("============ Relative error in total energy: {}".format(rete))
+        print("============ Mean absolute error(in Watts): {}".format(mae))
+        print("                                                  ")
+
+        file_path = "plot_results/" + self.__predict_mode + "/" + self.__meter_name + "_" + self.__appliance + ".log"
+        file = open(file_path, mode="w+")
+        print("======================================Appliance: {}-{}".format(self.__meter_name, appliance_name), file=file)
+        print("============ Recall: {}".format(rpaf[0]), file=file)
+        print("============ Precision: {}".format(rpaf[1]), file=file)
+        print("============ Accuracy: {}".format(rpaf[2]), file=file)
+        print("============ F1 Score: {}".format(rpaf[3]), file=file)
+        print("============ Relative error in total energy: {}".format(rete), file=file)
+        print("============ Mean absolute error(in Watts): {}".format(mae), file=file)
+        print("                                                  ", file=file)
+        file.close()
 
 
 def generate_min_max(meter_name):

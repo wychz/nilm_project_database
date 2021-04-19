@@ -3,9 +3,9 @@ import tensorflow as tf
 
 def create_lstm(input_window_length):
     input_layer = tf.keras.layers.Input(shape=(input_window_length, 1))
-    conv1d_layer = tf.keras.layers.Conv1D(filters=32, kernel_size=5, activation='relu')(input_layer)
+    conv1d_layer = tf.keras.layers.Conv1D(filters=32, padding='same', kernel_size=5, activation='relu')(input_layer)
     maxpool_layer = tf.keras.layers.MaxPooling1D(3)(conv1d_layer)
-    conv1d_layer = tf.keras.layers.Conv1D(filters=32, kernel_size=5, activation='relu')(maxpool_layer)
+    conv1d_layer = tf.keras.layers.Conv1D(filters=32, padding='same', kernel_size=5, activation='relu')(maxpool_layer)
     lstm_layer = tf.keras.layers.LSTM(32, dropout=0.1)(conv1d_layer)
     dense_layer = tf.keras.layers.Dense(16, activation='relu')(lstm_layer)
     model = tf.keras.Model(inputs=input_layer, outputs=dense_layer)

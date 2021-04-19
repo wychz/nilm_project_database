@@ -12,6 +12,7 @@ predict_mode = running_param.predict_mode
 plot_to_file = running_param.plot_to_file
 dataset = running_param.dataset
 engine = get_engine()
+fig_length = running_param.fig_length
 cf = configparser.ConfigParser()
 cf.read('config.ini', encoding='utf-8')
 
@@ -28,19 +29,20 @@ def test_model():
                     appliance_window = cf.getint('window', appliance_name)
                 except:
                     appliance_window = cf.getint('window', 'common')
-                test_directory = 'data_process/' + dataset + '/processed_dataset/1min_csv/' + predict_mode + '/' + appliance_name + '_test_.csv'
-                saved_model_dir = "saved_models/" + model_type + "_1min/" + predict_mode + "/" + appliance_name + "_" + model_type + "_model.h5"
-                log_file_dir = "saved_models/" + model_type + "_1min/" + predict_mode + "/" + appliance_name + "_" + model_type + ".log"
+                test_directory = 'data_process/' + dataset + '/processed_dataset/1min_csv/' + predict_mode + '/' + meter_name + '_' + appliance_name + '_test_.csv'
+                saved_model_dir = "saved_models/" + model_type + "_1min/" + predict_mode + "/" + meter_name + '_' + appliance_name + "_" + model_type + "_model.h5"
+                log_file_dir = "saved_models/" + model_type + "_1min/" + predict_mode + "/" + meter_name + '_' + appliance_name + "_" + model_type + ".log"
                 appliance_count = get_appliance_count()
-                tester = Tester(appliance_name, batch_size, model_type, predict_mode, meter_name_list, test_directory, saved_model_dir,
-                                log_file_dir, appliance_window, appliance_count, plot_to_file)
+                tester = Tester(meter_name, appliance_name, batch_size, model_type, predict_mode, meter_name_list, test_directory, saved_model_dir,
+                                log_file_dir, appliance_window, appliance_count, plot_to_file, fig_length)
                 tester.test_model()
+
 
     elif predict_mode == 'multiple' or predict_mode == 'multi_label':
         test_directory = 'data_process/' + dataset + '/processed_dataset/1min_csv/' + predict_mode + '/' + 'all' + '_test_.csv'
         saved_model_dir = "saved_models/" + model_type + "_1min/" + predict_mode + "/" + 'all' + "_" + model_type + "_model.h5"
         log_file_dir = "saved_models/" + model_type + "_1min/" + predict_mode + "/" + 'all' + "_" + model_type + ".log"
         appliance_count = get_appliance_count()
-        tester = Tester('all', batch_size, model_type, predict_mode, meter_name_list, test_directory, saved_model_dir,
-                        log_file_dir, input_window_length, appliance_count, plot_to_file)
+        tester = Tester('all', 'all', batch_size, model_type, predict_mode, meter_name_list, test_directory, saved_model_dir,
+                        log_file_dir, input_window_length, appliance_count, plot_to_file, fig_length)
         tester.test_model()

@@ -31,5 +31,6 @@ is_plot = cf.getboolean('other', 'plot')
 plot_to_file = cf.getboolean('other', 'plot_to_file')
 
 input_window_length = int(cf.get('window', 'common'))
+fig_length = cf.getint("other", "fig_length")
 
 

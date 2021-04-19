@@ -32,17 +32,17 @@ def generate(meter_name_list, main_meter, save_path, engine, plot):
             test = df_align.tail(test_len)
             test.reset_index(drop=True, inplace=True)
             df_align.drop(df_align.index[-test_len:], inplace=True)
-            test.to_csv(save_path + appliance_name + '_test_' + '.csv', index=False, header=False)
+            test.to_csv(save_path + meter_name + '_' + appliance_name + '_test_' + '.csv', index=False, header=False)
 
             # Validation CSV
             val_len = int((len(df_align) / 100) * validation_percent)
             val = df_align.tail(val_len)
             val.reset_index(drop=True, inplace=True)
             df_align.drop(df_align.index[-val_len:], inplace=True)
-            val.to_csv(save_path + appliance_name + '_validation_' + '.csv', index=False, header=False)
+            val.to_csv(save_path + meter_name + '_' + appliance_name + '_validation_' + '.csv', index=False, header=False)
 
             # Training CSV
-            df_align.to_csv(save_path + appliance_name + '_training_.csv', index=False, header=False)
+            df_align.to_csv(save_path + meter_name + '_' + appliance_name + '_training_.csv', index=False, header=False)
 
             print("    Size of total training set is {:.4f} M rows.".format(len(df_align) / 10 ** 6))
             print("    Size of total validation set is {:.4f} M rows.".format(len(val) / 10 ** 6))

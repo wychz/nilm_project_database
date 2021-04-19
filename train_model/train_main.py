@@ -21,8 +21,6 @@ cf = configparser.ConfigParser()
 cf.read('config.ini', encoding='utf-8')
 
 
-
-
 def train_model():
     if predict_mode == 'single':
         for meter_name in meter_name_list:
@@ -35,9 +33,9 @@ def train_model():
                     appliance_window = cf.getint('window', appliance_name)
                 except:
                     appliance_window = cf.getint('window', 'common')
-                training_directory = 'data_process/' + dataset + '/processed_dataset/1min_csv/' + predict_mode + "/" + appliance_name + '_training_.csv'
-                validation_directory = 'data_process/' + dataset + '/processed_dataset/1min_csv/' + predict_mode + "/" + appliance_name + '_validation_.csv'
-                save_model_dir = "saved_models/" + model_type + "_1min/" + predict_mode + "/" + appliance_name + "_" + model_type + "_model.h5"
+                training_directory = 'data_process/' + dataset + '/processed_dataset/1min_csv/' + predict_mode + "/" + meter_name + '_' + appliance_name + '_training_.csv'
+                validation_directory = 'data_process/' + dataset + '/processed_dataset/1min_csv/' + predict_mode + "/" + meter_name + '_' + appliance_name + '_validation_.csv'
+                save_model_dir = "saved_models/" + model_type + "_1min/" + predict_mode + "/" + meter_name + '_' + appliance_name + "_" + model_type + "_model.h5"
                 appliance_count = get_appliance_count()
                 trainer = Trainer(appliance_name, batch_size, model_type,
                                   training_directory, validation_directory,
