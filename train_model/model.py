@@ -28,9 +28,9 @@ def model_select(input_window_length, model_type, appliance_count, predict_mode)
 
     if model_type == 'lstm':
         input_layer = tf.keras.layers.Input(shape=(input_window_length, 1))
-        conv1d_layer = tf.keras.layers.Conv1D(filters=32, kernel_size=5, activation='relu')(input_layer)
+        conv1d_layer = tf.keras.layers.Conv1D(filters=32, kernel_size=5, padding='same', activation='relu')(input_layer)
         maxpool_layer = tf.keras.layers.MaxPooling1D(3)(conv1d_layer)
-        conv1d_layer = tf.keras.layers.Conv1D(filters=32, kernel_size=5, activation='relu')(maxpool_layer)
+        conv1d_layer = tf.keras.layers.Conv1D(filters=32, kernel_size=5, padding='same', activation='relu')(maxpool_layer)
         lstm_layer = tf.keras.layers.LSTM(32, dropout=0.1)(conv1d_layer)
         if predict_mode == 'multi_label':
             dense_layer = tf.keras.layers.Dense(appliance_count, activation="sigmoid")(lstm_layer)
