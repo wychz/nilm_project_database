@@ -18,7 +18,7 @@ engine = get_engine()
 class Tester:
     def __init__(self, meter_name, appliance, batch_size, model_type, predict_mode, meter_name_list,
                  test_directory, saved_model_dir, log_file_dir,
-                 input_window_length, appliance_count, plot_to_file, fig_length):
+                 input_window_length, appliance_count, plot_to_file, fig_length, appliance_threshold):
         self.__meter_name = meter_name
         self.__appliance = appliance
         self.__model_type = model_type
@@ -37,6 +37,7 @@ class Tester:
             self.__appliance_count = appliance_count
         self.__log_file = log_file_dir
         self.__fig_length = fig_length
+        self.__threshold = appliance_threshold
 
     def test_model(self):
         model = load_model(self.__saved_model_dir)
@@ -88,8 +89,7 @@ class Tester:
     def plot_results_single(self, testing_history, test_input, test_target, appliance_min, appliance_max):
         testing_history, test_target, test_agg = self.testing_data_process(testing_history, test_target, test_input,
                                                                            appliance_min, appliance_max)
-        threshold = running_param.on_power_threshold
-        rpaf, rete, mae = self.calculate_metrics(testing_history, test_agg, test_target, threshold)
+        rpaf, rete, mae = self.calculate_metrics(testing_history, test_agg, test_target, self.__threshold)
         self.print_metrics(self.__appliance, rpaf, rete, mae)
         appliance_name = "pic"
         self.print_plots(test_agg, test_target, testing_history, 1, appliance_name)
@@ -98,8 +98,7 @@ class Tester:
                               appliance_max):
         testing_history, test_target, test_agg = self.testing_data_process(testing_history, test_target, test_input,
                                                                            appliance_min, appliance_max)
-        threshold = running_param.on_power_threshold
-        rpaf, rete, mae = self.calculate_metrics(testing_history, test_agg, test_target, threshold)
+        rpaf, rete, mae = self.calculate_metrics(testing_history, test_agg, test_target, self.__threshold)
         self.print_metrics(appliance_name, rpaf, rete, mae)
         self.print_plots(test_agg, test_target, testing_history, count, appliance_name)
 
