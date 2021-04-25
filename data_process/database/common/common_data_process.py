@@ -28,7 +28,7 @@ def generate_mains_common(meter, sample_seconds, plot, engine):
 
 def generate_appliance_common(appliance_name, appliance_id, meter, sample_seconds, engine):
     meter_table_name = 'meter_{}_source'.format(meter)
-    sql_query = "select timestamp, KW from {} where model = '{}'".format(meter_table_name, appliance_id)
+    sql_query = "select timestamp, KW from {} where model = '{}' or instr(model, '{}') = 1".format(meter_table_name, appliance_id, appliance_id)
     app_df = data_read_database(engine, sql_query)
     app_df.rename(columns={"KW": appliance_name, "timestamp": "time"}, inplace=True)
     app_df['time'] = app_df['time'].astype('str')

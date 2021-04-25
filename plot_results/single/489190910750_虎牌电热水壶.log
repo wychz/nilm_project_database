@@ -3,6 +3,6 @@
 ============ Precision: 0.09876543209876543
 ============ Accuracy: 0.9078282828282829
 ============ F1 Score: 0.1797752808988764
-============ Relative error in total energy: 0.49358009358544297
-============ Mean absolute error(in Watts): 11.044733889544537
+============ Relative error in total energy: 0.3016192397610371
+============ Mean absolute error(in Watts): 5.244695675561403
                                                   
