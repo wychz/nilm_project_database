@@ -2,8 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a34a6cc-204a-40d5-89f7-e2a35cd7a725" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/data_process/database/single_data_generate_file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/nilm_send.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/nilm_send.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_process/database/common/common_data_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_process/database/common/common_data_process.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/160327039_澳柯玛冰柜_test_.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/160327039_澳柯玛冰柜_test_.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/160327039_澳柯玛冰柜_training_.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/160327039_澳柯玛冰柜_training_.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/160327039_澳柯玛冰柜_validation_.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/160327039_澳柯玛冰柜_validation_.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/489190910750_艾美特电油汀_test_.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/489190910750_艾美特电油汀_test_.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/489190910750_艾美特电油汀_training_.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/489190910750_艾美特电油汀_training_.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/489190910750_艾美特电油汀_validation_.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/489190910750_艾美特电油汀_validation_.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/489190910750_虎牌电热水壶_test_.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/489190910750_虎牌电热水壶_test_.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/489190910750_虎牌电热水壶_training_.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/489190910750_虎牌电热水壶_training_.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/489190910750_虎牌电热水壶_validation_.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/489190910750_虎牌电热水壶_validation_.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/489190910750_飞利浦电吹风_test_.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/489190910750_飞利浦电吹风_test_.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/489190910750_飞利浦电吹风_training_.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/489190910750_飞利浦电吹风_training_.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/489190910750_飞利浦电吹风_validation_.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_process/database/processed_dataset/1min_csv/single/489190910750_飞利浦电吹风_validation_.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_results/single/160327039_澳柯玛冰柜.log" beforeDir="false" afterPath="$PROJECT_DIR$/plot_results/single/160327039_澳柯玛冰柜.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_results/single/160327039_澳柯玛冰柜_pic.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_results/single/160327039_澳柯玛冰柜_pic.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_results/single/489190910750_艾美特电油汀.log" beforeDir="false" afterPath="$PROJECT_DIR$/plot_results/single/489190910750_艾美特电油汀.log" afterDir="false" />
@@ -11,9 +27,15 @@
       <change beforePath="$PROJECT_DIR$/plot_results/single/489190910750_虎牌电热水壶.log" beforeDir="false" afterPath="$PROJECT_DIR$/plot_results/single/489190910750_虎牌电热水壶.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_results/single/489190910750_虎牌电热水壶_pic.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_results/single/489190910750_虎牌电热水壶_pic.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_results/single/489190910750_飞利浦电吹风_pic.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_results/single/489190910750_飞利浦电吹风_pic.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/running_param.py" beforeDir="false" afterPath="$PROJECT_DIR$/running_param.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saved_models/concat_1min/single/160327039_澳柯玛冰柜_concat_model.h5" beforeDir="false" afterPath="$PROJECT_DIR$/saved_models/concat_1min/single/160327039_澳柯玛冰柜_concat_model.h5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saved_models/concat_1min/single/489190910750_艾美特电油汀_concat_model.h5" beforeDir="false" afterPath="$PROJECT_DIR$/saved_models/concat_1min/single/489190910750_艾美特电油汀_concat_model.h5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saved_models/concat_1min/single/489190910750_虎牌电热水壶_concat_model.h5" beforeDir="false" afterPath="$PROJECT_DIR$/saved_models/concat_1min/single/489190910750_虎牌电热水壶_concat_model.h5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saved_models/concat_1min/single/489190910750_飞利浦电吹风_concat_model.h5" beforeDir="false" afterPath="$PROJECT_DIR$/saved_models/concat_1min/single/489190910750_飞利浦电吹风_concat_model.h5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp.conf" beforeDir="false" afterPath="$PROJECT_DIR$/temp.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_model/test_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_model/test_main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_model/tester.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_model/tester.py" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,8 +60,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nilm_redd" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/data_process/database" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -49,11 +72,26 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Chalice\Desktop\nilm\nilm_send\data_process\database" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Project\Python\Energy\nilm_send\saved_models" />
       <recent name="D:\Project\Python\Energy\nilm_send\train_model\network" />
       <recent name="D:\Project\Python\Energy\nilm_send\data_process\database\common" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Python.entrance">
     <configuration name="data_utils" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -176,18 +214,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -217,11 +243,26 @@
       <workItem from="1618845169326" duration="8876000" />
       <workItem from="1619002998610" duration="5634000" />
       <workItem from="1619092034499" duration="3551000" />
+      <workItem from="1619158898043" duration="2034000" />
+      <workItem from="1619322492841" duration="9860000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="1014" y="503" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1616514106656">
@@ -341,17 +382,22 @@
           <option name="timeStamp" value="121" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/data_process/database/single_data_generate.py</url>
-          <line>21</line>
+          <url>file://$PROJECT_DIR$/test_model/test_main.py</url>
+          <line>39</line>
           <option name="timeStamp" value="122" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_model/test_main.py</url>
+          <line>27</line>
+          <option name="timeStamp" value="123" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/nilm_send$tesss.coverage" NAME="tesss Coverage Results" MODIFIED="1616512760852" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/nilm_send$tester.coverage" NAME="tester Coverage Results" MODIFIED="1614159357772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_model" />
-    <SUITE FILE_PATH="coverage/nilm_send$entrance.coverage" NAME="entrance Coverage Results" MODIFIED="1619095090374" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/nilm_send$tesss.coverage" NAME="tesss Coverage Results" MODIFIED="1616512760852" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/nilm_send$entrance.coverage" NAME="entrance Coverage Results" MODIFIED="1619337773811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/nilm_send$test_main.coverage" NAME="test_main Coverage Results" MODIFIED="1618853294920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_model" />
     <SUITE FILE_PATH="coverage/nilm_send$data_utils.coverage" NAME="data_utils Coverage Results" MODIFIED="1614153254155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_process/database/common" />
   </component>

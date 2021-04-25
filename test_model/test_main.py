@@ -27,9 +27,11 @@ def test_model():
                 appliance_name = get_appliance_name(appliance_id, engine)
                 try:
                     appliance_window = cf.getint('window', appliance_name)
-                    appliance_threshold = cf.getint('threshold', appliance_name)
                 except:
                     appliance_window = cf.getint('window', 'common')
+                try:
+                    appliance_threshold = cf.getint('threshold', appliance_name)
+                except:
                     appliance_threshold = cf.getint('threshold', 'common')
                 test_directory = 'data_process/' + dataset + '/processed_dataset/1min_csv/' + predict_mode + '/' + meter_name + '_' + appliance_name + '_test_.csv'
                 saved_model_dir = "saved_models/" + model_type + "_1min/" + predict_mode + "/" + meter_name + '_' + appliance_name + "_" + model_type + "_model.h5"
