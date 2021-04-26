@@ -1,4 +1,4 @@
-from data_process.database import single_data_generate
+from data_process.database import single_data_generate, single_data_generate_file
 from data_process.database import multiple_data_generate
 import running_param
 from sqlalchemy import create_engine
@@ -22,5 +22,7 @@ engine = create_engine("mysql+pymysql://{}:{}@{}:{}/{}".format(username, passwor
 def database_data_process():
     if predict_mode == 'single':
         single_data_generate.generate(meter_name_list, main_meter, save_path, engine, plot)
+    if predict_mode == 'single_file':
+        single_data_generate_file.generate(meter_name_list, main_meter, save_path, engine, plot)
     elif predict_mode == 'multiple':
         multiple_data_generate.generate(meter_name_list, main_meter, save_path, engine, plot)
