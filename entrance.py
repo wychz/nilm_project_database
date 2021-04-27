@@ -1,4 +1,6 @@
 import argparse
+
+from mq.publish_message import publish_message
 from utils.common_utils import remove_space
 from train_model.train_main import train_model
 from test_model.test_main import test_model
@@ -15,11 +17,11 @@ arguments = parser.parse_args()
 # mode = arguments.step
 mode = 'test'
 
-
 if mode == 'train':
     train_model()
 elif mode == 'test':
     test_model()
+    publish_message()
 elif mode == 'data_process':
     database_data_process()
 elif mode == 'data_process_database_multi_label':

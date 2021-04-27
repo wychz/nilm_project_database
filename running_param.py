@@ -33,3 +33,6 @@ input_window_length = int(cf.get('window', 'common'))
 fig_length = cf.getint("other", "fig_length")
 
 experiment_id = cf.get('data', 'experiment_id')
+
+mqtt_host = cf.get('mqtt', 'host')
+mqtt_port = cf.getint('mqtt', 'port')

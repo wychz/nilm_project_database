@@ -1,7 +1,15 @@
 import paho.mqtt.client as mqtt
+import running_param as param
+import os
 
-MQTTHOST = "localhost"
-MQTTPORT = 1883
+file_path = os.path.abspath("./plot_results/single_file/")
+model_path = os.path.abspath("./saved_models/concat_1min/single_file/")
+payload = "model: " + model_path + ", file: " + file_path
+
+MQTTHOST = param.mqtt_host
+MQTTPORT = param.mqtt_port
+MQTTTOPIC = "/exp/" + param.experiment_id
+MQTTPAYLOAD = payload
 mqttClient = mqtt.Client()
 
 
@@ -29,7 +37,6 @@ def on_subscribe():
 
 def publish_message():
     on_mqtt_connect()
-    on_publish("/test/server", "Hello Python!", 1)
-    on_subscribe()
+    on_publish(MQTTTOPIC, payload, 1)
     while True:
         pass
