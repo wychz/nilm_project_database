@@ -11,7 +11,6 @@ import configparser
 import running_param
 
 cf = configparser.ConfigParser()
-cf.read('temp.conf', encoding='gbk')
 engine = get_engine()
 
 
@@ -33,8 +32,13 @@ class Tester:
         self.__plot_to_file = plot_to_file
         if self.__predict_mode == 'single':
             self.__appliance_count = 1
+            cf.read('temp.conf', encoding='gbk')
+        elif self.__predict_mode == 'single_file':
+            self.__appliance_count = 1
+            cf.read('temp_file.conf', encoding='gbk')
         else:
             self.__appliance_count = appliance_count
+            cf.read('temp.conf', encoding='gbk')
         self.__log_file = log_file_dir
         self.__fig_length = fig_length
         self.__threshold = appliance_threshold
@@ -62,7 +66,7 @@ class Tester:
         self.plot_results(testing_history, test_input, test_target)
 
     def plot_results(self, testing_history, test_input, test_target):
-        if self.__predict_mode == 'single':
+        if self.__predict_mode == 'single' or self.__predict_mode == 'single_file':
             appliance_min, appliance_max = generate_min_max(self.__appliance)
             self.plot_results_single(testing_history, test_input, test_target, appliance_min, appliance_max)
 

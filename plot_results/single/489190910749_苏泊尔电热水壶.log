@@ -1,8 +1,8 @@
 ======================================Appliance: 489190910749-ËÕ²´¶ûµçÈÈË®ºø
-============ Recall: nan
-============ Precision: nan
-============ Accuracy: 1.0
-============ F1 Score: nan
-============ Relative error in total energy: 1.0
-============ Mean absolute error(in Watts): 4.533653259277344
+============ Recall: 1.0
+============ Precision: 0.11494252873563218
+============ Accuracy: 0.9859770533600437
+============ F1 Score: 0.20618556701030927
+============ Relative error in total energy: 0.5565905328920168
+============ Mean absolute error(in Watts): 7.883023202245092
                                                   

@@ -24,7 +24,7 @@ def generate(meter_name_list, main_meter, save_path, engine, plot):
             mains_df = generate_mains_common(main_meter, sample_seconds, is_plot, engine)
             app_df = generate_appliance(appliance_name, appliance_id, meter_name, sample_seconds, is_plot, engine)
             df_align = generate_mains_appliance(mains_df, app_df, appliance_name, sample_seconds, is_plot)
-            df_align = single_normalization(df_align, appliance_name)
+            df_align = single_normalization(df_align, appliance_name, 'database')
             df_align['isworkday'] = 1           # 数据库数据有问题，后期删除这个
 
             # test CSV

@@ -28,7 +28,7 @@ class Trainer:
         self.__beta_2 = 0.999
         self.__save_model_dir = save_model_dir
         self.__predict_mode = predict_mode
-        if self.__predict_mode == 'single':
+        if self.__predict_mode == 'single' or self.__predict_mode == 'single_file':
             self.__appliance_count = 1
         else:
             self.__appliance_count = appliance_count
